@@ -27,3 +27,29 @@ hbs.registerPartials(__dirname + '/views/common');
 //  +common
 //    +header.html
 //  {{>header }}
+
+//局部文件渲染数据 
+app.use(function(req,res,next){
+    if(res.locals.header) res.locals.header ={};
+    res.locals.header.list = 'Hello express';
+    next();
+});
+// 调用方法
+//+common
+//  +header
+//      +header.html -> <p>{{header.list}}</p>
+// : 可以单独创建js文件引入
+// +pei
+//      +commonConfig.js
+//        module.exports ={
+//          header :function(req,res,next){
+//                      if(res.locals.header) res.locals.header ={};
+//                      res.locals.header.list = 'Hello express';
+//                      next();
+//                  }  
+//        };
+
+//调用  app.js-> var CommonConfig = require('./pei/commonConfig') app.use(CommonConfig.header);
+
+
+
