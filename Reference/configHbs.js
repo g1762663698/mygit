@@ -19,7 +19,8 @@ hbs.registerHelper('block', function(name, context) {
     blocks[name] = [];
     return len ? val : context.fn(this);
 });
-// {{#extend 'style'}}{{#extend "js"}}
+//{{#}}
+// {{#extend 'style'}} <p></P>{{/extend}} {{block "style"}}
 
 //设置公共模版文件
 hbs.registerPartials(__dirname + '/views/common');
