@@ -23,3 +23,18 @@ var rewriter    = jsonServer.rewriter(routes);
         console.log(`opn http://${ip}:3000`)
     })
 
+//db.js 
+var Mock = require('mockjs');
+    module.exports = {
+      getComment : Mock.mock({
+          'error':0,
+          'message':'success',
+          'result|40':[{
+              'author':'@name',
+              'comment':'@cparagraph',
+              'date':'@datetime'
+           }]
+        })
+    }
+
+
